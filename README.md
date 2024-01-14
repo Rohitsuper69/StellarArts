@@ -1,3 +1,3 @@
 # StellarArts
 
-This is a basic website for selling and buying digital arts online
+A website for selling and buying digital arts online. Browse through a range of products and you can also sell your digital goods. 
