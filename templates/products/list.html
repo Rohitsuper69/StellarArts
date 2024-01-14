@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1 class="mb-4 text-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Pixels whisper tales on a digital canvas</h1>
+<p class="mb-6 text-center text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Explore our curated collection of digital artworks. From vibrant paintings to intricate designs, find the perfect piece to enhance your surroundings.</p>
+
+
+
+<div class="grid content-center grid-cols-2 md:grid-cols-3 gap-4 ml-10">
+    {% for obj in object_list %}
+        {% include 'products/list-card.html' with product=obj %}
+    {% endfor %}
+</div>
+
+{% endblock %}

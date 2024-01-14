@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="flex flex-row ml-12 mr-10 mt-24">
+    <div class="w-3/4 mr-8">
+        <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">{{object.name}}</h2>
+        <p class="mb-3 text-gray-500 dark:text-gray-400">{{object.desc}}</p>
+        {% include 'products/attach.html' with attachments=attachments is_owner=is_owner %}
+    </div>
+    <div class="w-1/4 mr-8">
+        {% if is_owner %}
+        <p></p>
+        {% else %}
+        <div>
+            <div>
+                <span class="text-3xl font-semibold">$</span>
+                <span class="text-5xl font-extrabold tracking-tight">49</span>
+            </div>
+            <button type="submit" class="btn-submit mt-4">Buy Now</button>
+        </div>
+        {% endif %}
+        <div>
+            <div class="grid gap-4">
+                {% if object.image %}
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="{{object.image.url}}" alt="">
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            {% if form %}
+                <form method="POST" action="." class="form-control">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn-submit mt-4">Submit</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
